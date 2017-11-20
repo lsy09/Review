@@ -45,9 +45,19 @@
 --------------------------------
 
 ### 1.2 자바 함수
-- 함수(function)라는 용어는 **메서드(method)** 특히 정적 메서드(static method)와 같은 의미로 사용.
+- 함수(function)라는 용어는 **메서드(method)**, 특히 정적 메서드(static method)와 같은 의미로 사용.
 - **수학적인 함수**처럼 사용되며 부작용을 일이키지 않는 함수를 의미.
 
+#### 1.2.1 메서드와 람다를 일급 시민으로
+1. **메서드 레퍼런스(method reference)**
+- 디렉터리에서 모든 숨겨진 파일을 필터링 한다고 가정, 주어진 파일이 숨겨져 있는지 여부를 알려주는 메서드를 구현
+```
+File[] hiddenFiles = new File(".").listFiles(new  FileFilter() {
+    public bollean accept(File file){
+        return file.isHidden(); ----> 숨겨진 파일 필터링!
+    }
+});
+```
 
 
 
