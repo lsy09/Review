@@ -51,15 +51,20 @@
 #### 1.2.1 메서드와 람다를 일급 시민으로
 1. **메서드 레퍼런스(method reference)**
 - 디렉터리에서 모든 숨겨진 파일을 필터링 한다고 가정, 주어진 파일이 숨겨져 있는지 여부를 알려주는 메서드를 구현
-```
-File[] hiddenFiles = new File(".").listFiles(new  FileFilter() {
-    public bollean accept(File file){
-        return file.isHidden(); ----> 숨겨진 파일 필터링!
-    }
-});
-```
-
-
+    ``` 
+    **기존방식**
+    File[] hiddenFiles = new File(".").listFiles(new  FileFilter() {
+        public bollean accept(File file){
+            return file.isHidden(); ----> 숨겨진 파일 필터링!
+        }
+    });
+    ```
+    ``` 
+    **자바8**
+    File[] hiddenFiles = new File(".").listFiles(File::isHidden);
+    ```
+- File 클래스에 이미 isHidden이라는 함수는 준비되어있으므로 자바8의 *메서드 레퍼런스(method reference) ::('이 메서드를 값으로 사용하라'는 의미)*
+를 이용해서 listFiles에 직접 전달 가능.
 
 
 
