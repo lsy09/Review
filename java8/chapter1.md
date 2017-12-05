@@ -77,9 +77,7 @@ File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 ```
 
 - File 클래스에 이미 isHidden이라는 함수는 준비되어있으므로 자바8의 메서드 레퍼런스(method reference) **::** ('이 메서드를 값으로 사용하라'는 의미) 를 이용해서 listFiles에 직접 전달 가능
-
 - 자바 8에서는 더 이상 메서드가 이급값이 아닌 일급값
-
 - 메서드가 아닌 **함수**라는 용어를 사용했다는 사실 주목
 
 ##### 람다: 익명함수
