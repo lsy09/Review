@@ -139,7 +139,7 @@ public static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> p
 }
 ```
 
-`다음처럼 메서트 호출`
+`다음처럼 메서드 호출`
 ```
 filterApples(inventory, Apple::isGreenApple);
 ```
@@ -150,7 +150,7 @@ filterApples(inventory, Apple::isHeavyApple);
 
 #### 1.2.3 메서드 전달에서 람다로
 
-- 람다가 몇줄 이상으로 길어진다면(즉, 조금 복잡한 동작을 수행하는 상황) 익명 람다보다는 코드가 수행하는 일을 잘 설명하는 이름을 가진 메서드를 정의하고 메서트 레퍼런스를 활용하는것이 바람직.
+- 람다가 몇줄 이상으로 길어진다면(즉, 조금 복잡한 동작을 수행하는 상황) 익명 람다보다는 코드가 수행하는 일을 잘 설명하는 이름을 가진 메서드를 정의하고 메서드 레퍼런스를 활용하는것이 바람직.
 - 자바8 에서는 filter와 비슷한 동작을 수행하는 연산집합을 포함하는 새로운 스트림 API(컬렉션Collection 과 비슷하며 함수형 프로그래머에게 더 익숙한 API)를 제공.
 - 컬렉션과 스트림 간에 변환할 수 있는 메서드(map, reduce 등)도 제공.
 
