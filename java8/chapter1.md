@@ -62,24 +62,22 @@ CHAPTER 1. 자바 8을 눈여겨봐야 하는 이유
 
 - 디렉터리에서 모든 숨겨진 파일을 필터링 한다고 가정, 주어진 파일이 숨겨져 있는지 여부를 알려주는 메서드를 구현
 
-    `자바8 이전 : FileFilter 객체로 isHidden 메서드를 감산 다음에 File.listFiles 메서드로 전달 해야 했음.`
-    ```
-    File[] hiddenFiles = new File(".").listFiles(new  FileFilter() {
-        public bollean accept(File file){
-            return file.isHidden(); ----> 숨겨진 파일 필터링!
-        }
-    });
-    ```
-    
-    `자바8 : 메서드레퍼런스 :: 문법을 이용해서 직접 isHidden함수를 lisstFiles 메서드로 전달 할수 있음.`
-    ```
-    File[] hiddenFiles = new File(".").listFiles(File::isHidden);
-    ```
+`이전 자바 : FileFilter 객체로 isHidden 메서드를 감산 다음에 File.listFiles 메서드로 전달 해야 했음.`
+```
+File[] hiddenFiles = new File(".").listFiles(new  FileFilter() {
+    public bollean accept(File file){
+        return file.isHidden(); ----> 숨겨진 파일 필터링!
+    }
+});
+```
+
+`자바 8 : 메서드레퍼런스 :: 문법을 이용해서 직접 isHidden함수를 lisstFiles 메서드로 전달 할수 있음.`
+```
+File[] hiddenFiles = new File(".").listFiles(File::isHidden);
+```
 
 - File 클래스에 이미 isHidden이라는 함수는 준비되어있으므로 자바8의 메서드 레퍼런스(method reference) **::** ('이 메서드를 값으로 사용하라'는 의미) 를 이용해서 listFiles에 직접 전달 가능
-
 - 자바 8에서는 더 이상 메서드가 이급값이 아닌 일급값
-
 - 메서드가 아닌 **함수**라는 용어를 사용했다는 사실 주목
 
 ##### 람다: 익명함수
@@ -89,11 +87,135 @@ CHAPTER 1. 자바 8을 눈여겨봐야 하는 이유
 
 #### 1.2.2 코드 넘겨주기: 예제
 
-`자바8 이전`
+`이전 자바`
 
 ```
 public static List<Apple> filterGreenApples(List<Apple> inventory){
-  List<Apple> result = new ArrayList<>();
-  for(App
+  List<Apple> result = new ArrayList<>();  <--반환되는 result는 List로 처음에는 비어 있지만 점점 녹색 사과로 채워진다.
+  for(Apple apple : inventory){
+    if("green".equals(apple.getColor())){   <-- 녹색사과만 선택
+        result.add(apple);
+    }
+  }
+  return result;
+}
+
+public static List<Apple> filterHeavyApples(List<Apple> inventory){
+  List<Apple> result = new ArrayList<>();  
+  for(Apple apple : inventory){
+    if(apple.getWeight() > 150){   <-- 150이상의 무거운 애플만 선택
+        result.add(apple);
+    }
+  }
+  return result;
 }
 ```
+
+`자바 8 :: 코드를 인수로 넘겨줄 수 있으므로 filter 메서드를 중복으로 구현할 필요 없음. `
+
+```
+public static boolean isGreenApple(Apple apple){
+    return "green".equals(apple.getColor());
+}
+
+public static boolean isHeavyApple(Apple apple){
+    return apple.getWeight()>150;
+} 
+
+public interface Predicate<T>{ <-- 보통 java.util.function에서 import
+    boolean test(T t);
+}
+
+public static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> p){
+    List<Apple> result = new ArrayList<>();
+    for(Apple apple : inventory){
+        if(p.test(apple)){
+            result.add(apple);
+        }
+    }
+    return result;
+}
+```
+
+`다음처럼 메서드 호출`
+```
+filterApples(inventory, Apple::isGreenApple);
+```
+`또는, 다음과 같은 호출`
+```
+filterApples(inventory, Apple::isHeavyApple);
+```
+
+#### 1.2.3 메서드 전달에서 람다로
+
+- 람다가 몇줄 이상으로 길어진다면(즉, 조금 복잡한 동작을 수행하는 상황) 익명 람다보다는 코드가 수행하는 일을 잘 설명하는 이름을 가진 메서드를 정의하고 메서드 레퍼런스를 활용하는것이 바람직.
+- 자바8 에서는 filter와 비슷한 동작을 수행하는 연산집합을 포함하는 새로운 스트림 API(컬렉션Collection 과 비슷하며 함수형 프로그래머에게 더 익숙한 API)를 제공.
+- 컬렉션과 스트림 간에 변환할 수 있는 메서드(map, reduce 등)도 제공.
+
+---
+
+### 1.3 스트림
+- 자바 애플리케이션은 컬렉션을 만들고 활용 함.
+- 고가의 트랜잭션(Transaction)만 필터링한 다음에 통화로 결과를 그룹화 해야 한다고 가정.
+
+`이전 자바 : 기본코드`
+```
+Map<Currency, List<Transaction>> transactionByCurrencies = 
+new HashMap<>();        <-- 그룹화된 트랜잭션을 더할 Map생성
+for(Transaction transaction : transactions){        <-- 트랜잭션의 리스트를 반복
+    if(transaction.getPrice() > 1000){              <-- 고가의 트랜잭션을 필터링
+        Currency currency = transaction.getCurrency();      <-- 트랜잭션의 통화 추출
+        List<Transaction> transactionsForCurrency =    
+            transactionByCurrencies.get(currency);
+        if(transactionsForCurrency == null){        <-- 현재 통화의 그룹화된 맵에 항목이 없으면 새로 만듬
+            transactionForCurrency = new ArrayList<>();
+            transactionsByCurrencies.put(currency, transactionsForCurrency);
+        }
+        transactionsForCurrency.add(transaction);    <-- 현재 탐색된 트랜잭션을 같은 통화의 트랜잭션 리스트에 추가
+    } 
+}
+```
+
+`자바 8 : 스트림 API 이용`
+```
+Map<Currency, List<Transaction>> transactionByCurrencies = 
+    transactions.stream()
+        .filter((Transaction t) -> t.getPrice() > 1000)     <-- 고가의 트랜잭션 필터링
+        .collect(groupingBy(Transaction::getCurrency));     <-- 통화로 그룹화함
+```
+
+- 스트림 API를 이용하면 컬렉션 API와는 상당히 다른 방식으로 데이터를 처리할 수 있다는 사실 기억.
+- 컬렉션에서는 직접 처리 이런 방식의 반복을 **외부반복(external iteration)**.
+- 스트림API를 이용하면 루프를 신경쓸 필요 없고 라이브러리 내부에서 모든데이터가 처리됨, 이런 방식의 반복을 **내부반복(internal iteration)**.
+
+#### 1.3.1 멀티스레딩은 어렵다
+`이전 자바`
+- 멀티스레딩 환경에서 각각의 스레드는 동시에 공유된 데이터에 접근, 데이터 갱신.
+- 멀티스레딩 모델은 순차적인 모델보다 다루기가 어려움.
+
+`자바 8`
+- 스트림API(java.util.stream)로 '컬렉션을 처리하면서 발생하는 모호함과 반복적인 코드 문제' 그리고 '멀티코어 활용 어려움'이라는 두 가지 문제를 모두 해결.
+
+---
+
+### 1.4 디폴트 메서드
+- 라이브러리 설계자가 더 쉽게 변화할 수 잇는 인터페이스를 만들 수 있도록 디폴트 메서드 추가.
+- 특정 프로그램을 구현하는데 도움을 주는 기능이 아니라 미래에 프로그램이 쉽게 변화할 수 있는 환경을 제공하는 기능.
+
+`이전 자바`
+- List<T>(List가 구현하는 인터페이스인 Collection<T>도 마찬가지)가 stream 이나 parallelStream 메서드를 지원하지 않는다는 것이 문제
+
+
+`자바 8`
+- 구현 클래스에서 구현하지 않아도 되는 메서드를 인터페이스가 포함할 수 있는 기능도 제공.
+- 메서드 바디는 클래스 구현이 아니라 인터페이스의 일부로 포함.
+- 기존의 코드를 건드리지 않고도 원래의 인터페이스 설계를 자유롭게 확장, 인터페이스 규격명세서에 default라는 새로운 키워드를 지원.
+
+---
+
+### 1.5 함수형 프로그램에서 가져온 다른 유용한 아이디어
+`자바 8`
+- NullPointer 예외를 피할 수 있도록 도와주는 Optional<T> 클래스 제공.
+- Optional<T>는 값을 갖거나 갖지 않을 수 있는 컨테어너 객체이며, Optional<T>는 값이 없는 상황을 어떻게 처리할지 명시적으로 구현하는 메서드를 포함.
+- Optional<T>를 사용하면 NullPointer 예외를 피할 수 있음.
+
