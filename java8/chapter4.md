@@ -67,10 +67,6 @@ CHAPTER 4. 스트림 소개
     
     - **선언형**으로 코드를 구현 가능. 즉, 루프와 if조건문 등의 제어 블록을 사용해서 **어떻게** 동작을 구현할지 지정할 필요 없음
     
-    `[그림 4-1] 스트림 연산을 연결해서 스트림 파이프라인 형성`
-    
-    ![](/Users/suyoun/Project/book_review/java8/img/chp4/4-1.png)
-    
     - filter(또는 sorted, map, collect) 같은 연산은 고수준 빌딩 블록<sup>high-level building block</sup>으로 이루어져 있으므로 특정 스레딩 모델에
     제한되지 않고 자유롭게 어떤 상황에서든 사용할 수 있음
     
