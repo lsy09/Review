@@ -63,7 +63,7 @@ CHAPTER 1. 자바 8을 눈여겨봐야 하는 이유
 - 디렉터리에서 모든 숨겨진 파일을 필터링 한다고 가정, 주어진 파일이 숨겨져 있는지 여부를 알려주는 메서드를 구현
 
 `이전 자바 : FileFilter 객체로 isHidden 메서드를 감산 다음에 File.listFiles 메서드로 전달 해야 했음.`
-```
+```java
 File[] hiddenFiles = new File(".").listFiles(new  FileFilter() {
     public bollean accept(File file){
         return file.isHidden(); ----> 숨겨진 파일 필터링!
@@ -72,7 +72,7 @@ File[] hiddenFiles = new File(".").listFiles(new  FileFilter() {
 ```
 
 `자바 8 : 메서드레퍼런스 :: 문법을 이용해서 직접 isHidden함수를 lisstFiles 메서드로 전달 할수 있음.`
-```
+```java
 File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 ```
 
@@ -89,7 +89,7 @@ File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 
 `이전 자바`
 
-```
+```java
 public static List<Apple> filterGreenApples(List<Apple> inventory){
   List<Apple> result = new ArrayList<>();  <--반환되는 result는 List로 처음에는 비어 있지만 점점 녹색 사과로 채워진다.
   for(Apple apple : inventory){
@@ -113,7 +113,7 @@ public static List<Apple> filterHeavyApples(List<Apple> inventory){
 
 `자바 8 :: 코드를 인수로 넘겨줄 수 있으므로 filter 메서드를 중복으로 구현할 필요 없음. `
 
-```
+```java
 public static boolean isGreenApple(Apple apple){
     return "green".equals(apple.getColor());
 }
@@ -138,11 +138,11 @@ public static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> p
 ```
 
 `다음처럼 메서드 호출`
-```
+```java
 filterApples(inventory, Apple::isGreenApple);
 ```
 `또는, 다음과 같은 호출`
-```
+```java
 filterApples(inventory, Apple::isHeavyApple);
 ```
 
@@ -159,7 +159,7 @@ filterApples(inventory, Apple::isHeavyApple);
 - 고가의 트랜잭션(Transaction)만 필터링한 다음에 통화로 결과를 그룹화 해야 한다고 가정.
 
 `이전 자바 : 기본코드`
-```
+```java
 Map<Currency, List<Transaction>> transactionByCurrencies = 
 new HashMap<>();        <-- 그룹화된 트랜잭션을 더할 Map생성
 for(Transaction transaction : transactions){        <-- 트랜잭션의 리스트를 반복
@@ -177,7 +177,7 @@ for(Transaction transaction : transactions){        <-- 트랜잭션의 리스�
 ```
 
 `자바 8 : 스트림 API 이용`
-```
+```java
 Map<Currency, List<Transaction>> transactionByCurrencies = 
     transactions.stream()
         .filter((Transaction t) -> t.getPrice() > 1000)     <-- 고가의 트랜잭션 필터링
