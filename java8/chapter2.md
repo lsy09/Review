@@ -11,7 +11,7 @@ CHAPTER 2. 동작 파라미터화 코드 전달하기
 
 - 예제 코드를 점점 개선하면서 유연한 코드를 만드는 모범사례.
 
-#### 2.1.1 첫 번째 시도 : 녹색 사과 필터링
+> 첫 번째 시도 : 녹색 사과 필터링
 
 ```java
 public static List<Apple> filterGreenApples(List<Apple> inventory){
@@ -25,7 +25,7 @@ public static List<Apple> filterGreenApples(List<Apple> inventory){
 }
 ```
 
-#### 2.1.2 두 번째 시도 : 색을 파라미터화
+> 두 번째 시도 : 색을 파라미터화
 
 - 색을 파라미터화 할수 있도록 메서드에 파라미터
 
@@ -65,7 +65,7 @@ public static List<Apple> filterApplesByWeight(List<Apple> inventory, int weight
 - 위의 코드도 좋은 해결책이라고 할수 있지만 소프트웨어 공학의 **DRY(don't repeat yourself)** 원칙을 어기는 것.
 - 성능을 개선하려 한다면, 한줄이 아니라 메서드 **전체** 구현을 고쳐야 함.
 
-#### 2.1.3 세 번째 시도 : 가능한 모든 속성으로 필터링
+> 세 번째 시도 : 가능한 모든 속성으로 필터링
 
 - 모든 속성을 메서드 인수로 추가한 모슴
 
@@ -106,7 +106,7 @@ List<Apple> heavyApples = filterApples(inventory, "", 150, false);
     - 전략 디자인 패턴은 각 알고리즘(전략이라 불리는)을 캡슐화 하는 알고리즘 패밀리를 정의해둔 다음에 런타임에 알고리즘을 선택하는 기법.
 - **통작 파라미터화**, 즉 메서드가 다양한 동작(또는 전략)을 **받아서** 내부적으로 다양한 동작을 **수행** 할 수 있음.
 
-#### 2.2.1 네 번째 시도 : 추상적 조건으로 필터링
+> 네 번째 시도 : 추상적 조건으로 필터링
 ```java
 public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate p){
     List<Apple> result = new ArrayList<>();
@@ -118,9 +118,9 @@ public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate p){
     return result;
 }
 ```
-##### 코드/동작 전달하기
-- 위의 코드를 통해 ApplePredicate를 적절하게 구현하는 클래스를 만들면 된다. 속성과 관련한 모든 변화에 대응할 수 있는 유연한 코드를 준비 한것.
-- 이용자가 원하는 조건을 Predicate로 구현하여 언제든 요구사항을 반영.
+> 코드/동작 전달하기
+> - 위의 코드를 통해 ApplePredicate를 적절하게 구현하는 클래스를 만들면 된다. 속성과 관련한 모든 변화에 대응할 수 있는 유연한 코드를 준비 한것.
+> - 이용자가 원하는 조건을 Predicate로 구현하여 언제든 요구사항을 반영.
 
 `filterApples 메서드의 동장을 파라미터화` 
 ```java
