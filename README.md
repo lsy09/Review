@@ -4,7 +4,7 @@
 
 2017년 세미나
 ------
-- [OKKYCON 2017]()
+- [OKKYCON 2017](https://github.com/lsy09/Review/tree/master/OKKYCON%202017)
 
 
 도서
