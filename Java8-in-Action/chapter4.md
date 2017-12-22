@@ -158,6 +158,7 @@
     
     > 내부 반복
     - 반복자를 이용해서 명시적으로 반복하는 컬렉션과 달리 스트림은 내부 반복을 지원
+    
     ```java
     import static java.util.stream.Collectors.toList;
     List<String> threeHighCaloricdishNames = 
@@ -229,6 +230,7 @@ List<String> names = menu.stream()
 
 ### 4.4 스트림 연산
 - 스트림 인터페이스의 연산을 크게 두가지로 구분
+    
     ```java
     List<String> threeHighCaloricdishNames = 
                 menu.stream()                           <--- 스트림을 얻기

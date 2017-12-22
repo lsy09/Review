@@ -84,7 +84,59 @@ List<String> dishNames = menu.stream()
                              .collect(toList());
 ```
 
-`예제 (메서드 레퍼런ㅅ그 String::length를 map에 전달해서 문제를 해결)`
+`예제 (메서드 레퍼런스 String::length를 map에 전달해서 문제를 해결)`
 ```java
-List<String> words = 
+List<String> words = Arrays.asList("Java8", "Lambdas", "In", "Action");
+List<Integer> wordLengths = words.stream()
+                                 .map(String::length)
+                                 .collect(toList());
 ```
+
+`다른 map 메서드를 연결 <sup>chaining</sup>`
+```java
+List<Integer> dishNameLengths = menu.stream()
+                                    .map(Dish::getName)
+                                    .map(String::length)
+                                    .collect(toList());
+```
+
+> 스트림 평면화
+- 리스트에서 **고유 문자**로 이루어진 리스트를 반환
+
+```java
+word.stream()
+    .map(word -> word.split(""))
+    .distinct()
+    .
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
