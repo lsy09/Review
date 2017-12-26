@@ -4,7 +4,8 @@
 
 2017년 세미나
 ------
-- [OKKYCON 2017](https://github.com/lsy09/Review/tree/master/OKKYCON-2017)
+- [OKKYCON 2017](https://github.com/lsy09/Review/tree/master/OKKYCON2017)
+- [JetBrains Night 2017](https://github.com/lsy09/Review/tree/master/JetBrainsNight2017)
 
 
 도서
