@@ -1,9 +1,15 @@
-JSON Fragment Edit 기능
+Intellij - JSON Fragment Edit 기능
 =======================
 
 ---
 
-- Intellij 사용시 JSON을 편집 할 수 있는 **JSON Fragment Edit 기능** 제공 
+> JetBrains Night 2017 을 참석하였는데, 처음으로 동시통역으로 하는 세미나 였던듯 하다
+> 
+> 동시통역으로 진행하는것도 신기 했을뿐더러, 
+
+
+
+#### Intellij 사용시 JSON을 편집 할 수 있는 **JSON Fragment Edit 기능** 제공 
 1. JSON문자열을 넣을 String변수 선언. 
 ![스크린샷 2017-12-06 오후 4.12.47](https://i.imgur.com/wk0vezt.png)<br> 
 
