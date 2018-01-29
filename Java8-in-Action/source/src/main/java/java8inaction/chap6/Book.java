@@ -40,7 +40,7 @@ public class Book {
         return title;
     }
 
-    public static final List<Book> menu =
+    public static final List<Book> book =
             Arrays.asList( new Book("그 겨울의 일주일", "메이브 빈치", 13320, Book.Type.LITERATURE),
                            new Book("데미안", "헤르만 헤세", 7920, Book.Type.LITERATURE),
                            new Book("동물농장", "조지 오웰", 7020, Book.Type.LITERATURE),
