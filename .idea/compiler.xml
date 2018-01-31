@@ -7,11 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lambdasinaction" />
+        <module name="java8inaction" />
+        <module name="lambdasinaction (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="java8inaction" target="1.8" />
       <module name="lambdasinaction" target="1.8" />
+      <module name="lambdasinaction (1)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

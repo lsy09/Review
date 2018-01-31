@@ -6,6 +6,9 @@
       <sourceFolder url="file://$MODULE_DIR$/java8/sample-code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Java8InAction/sample-code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/가장빨리만나는자바8(카이호스트만)/sample" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java8inAction/source/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java8inAction/source/src/main/resources" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/Java8inAction/source/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
