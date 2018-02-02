@@ -14,38 +14,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a078965d-4fc5-4ed8-9c8f-127bab48c5f7" name="Default" comment="정리">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/README_origin.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/pom.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inAction/appa/Author.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inAction/appa/Authors.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inAction/appa/Book.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inAction/appc/StreamForker.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inAction/appd/InnerClass.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inAction/appd/Lambda.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inAction/chap6/Book.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inAction/chap6/Exercise.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inaction/appc/StreamForkerExample.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inaction/chap6/Dish.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appa/Author.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appa/Authors.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appa/Book.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appc/StreamForker$BlockingQueueSpliterator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appc/StreamForker$ForkingStreamConsumer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appc/StreamForker$Results.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appc/StreamForker.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appc/StreamForkerExample.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appd/InnerClass$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appd/InnerClass.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/appd/Lambda.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/chap6/Book$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/chap6/Book.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/chap6/Dish$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/chap6/Dish.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Review/java8inAction/chap6/Exercise.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/Java8-in-Action/source/target/" />
@@ -66,7 +37,18 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Exercise.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inaction/chap6/Exercise.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="35" column="86" lean-forward="false" selection-start-line="35" selection-start-column="86" selection-end-line="35" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -252,6 +234,62 @@
               <item name="Review" type="b2602c69:ProjectViewProjectNode" />
               <item name="Review" type="462c0819:PsiDirectoryNode" />
               <item name="Intellij" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Review" type="462c0819:PsiDirectoryNode" />
+              <item name="Java8InAction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Review" type="462c0819:PsiDirectoryNode" />
+              <item name="Java8InAction" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Review" type="462c0819:PsiDirectoryNode" />
+              <item name="Java8InAction" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Review" type="462c0819:PsiDirectoryNode" />
+              <item name="Java8InAction" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Review" type="462c0819:PsiDirectoryNode" />
+              <item name="Java8InAction" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Review" type="462c0819:PsiDirectoryNode" />
+              <item name="Java8InAction" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="java8inaction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Review" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Review" type="462c0819:PsiDirectoryNode" />
+              <item name="Java8InAction" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="java8inaction" type="462c0819:PsiDirectoryNode" />
+              <item name="chap6" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Review" type="b2602c69:ProjectViewProjectNode" />
@@ -598,7 +636,7 @@
       <workItem from="1517365266411" duration="3032000" />
       <workItem from="1517445088021" duration="683000" />
       <workItem from="1517541391513" duration="4576000" />
-      <workItem from="1517552029432" duration="36000" />
+      <workItem from="1517552029432" duration="256000" />
     </task>
     <task id="LOCAL-00001" summary="chapter_1.1">
       <created>1511174148730</created>
@@ -779,7 +817,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132225000" />
+    <option name="totallyTimeSpent" value="132445000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-315" width="2560" height="1417" extended-state="6" />
@@ -790,11 +828,11 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23017706" sideWeight="0.5119142" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29864973" sideWeight="0.49304175" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22299382" sideWeight="0.47498015" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22247884" sideWeight="0.3268467" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29864973" sideWeight="0.49304175" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22247884" sideWeight="0.6731533" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32024634" sideWeight="0.4785544" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23017706" sideWeight="0.48808578" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23017706" sideWeight="0.48808578" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21405877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -946,7 +984,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inaction/chap6/Exercise.java" />
+    <entry file="file://$PROJECT_DIR$/Java8InAction/source/src/main/java/java8inaction/chap6/Exercise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="35" column="86" lean-forward="false" selection-start-line="35" selection-start-column="86" selection-end-line="35" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
