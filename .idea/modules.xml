@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Review.iml" filepath="$PROJECT_DIR$/Review.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java8inAction/source/java8inaction.iml" filepath="$PROJECT_DIR$/Java8inAction/source/java8inaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java8InAction/source/java8inaction.iml" filepath="$PROJECT_DIR$/Java8InAction/source/java8inaction.iml" />
     </modules>
   </component>
 </project>
