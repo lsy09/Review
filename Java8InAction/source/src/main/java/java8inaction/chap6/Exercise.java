@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.Optional;
 import java.util.function.BinaryOperator;
+import java.util.stream.Collector;
 
 import static java.util.stream.Collectors.*;
 import static java8inaction.chap6.Book.book;
@@ -17,8 +18,11 @@ public class Exercise {
 //        System.out.println("avgPrice : " + avgPrice());
 //        System.out.println("bookStatistics : " + bookStatistics());
 //        System.out.println("shortBook : " + shortBook());
-        System.out.println("twoTotalPrices : " + twoTotalPrices());
+//        System.out.println("twoTotalPrices : " + twoTotalPrices());
 //        System.out.println("oneMaxPrice : " + oneMaxPrice());
+        System.out.println("reduceTotalPrice : " + reduceTotalPrice());
+        System.out.println("counting : " + counting());
+        System.out.println("totalPrice : " + totalPrice());
     }
 
     // 6.2 팩토리 메서드가 반환하는 컬렉터로 book의 갯수를 계산한다.
@@ -95,6 +99,36 @@ public class Exercise {
     private static Optional<Book> oneMaxPrice(){
         return book.stream().collect(reducing((d1, d2) ->d1.getPrice() > d2.getPrice() ? d1:d2));
     }
+
+    /**
+     *  Integer클래스의 sum 메서드 레퍼런스를 이용하여 코드 단순화
+     */
+    private static int reduceTotalPrice(){
+        return book.stream().collect(reducing(0,
+                                                Book::getPrice,
+                                                Integer::sum));
+    }
+
+    /**
+     * counting 컬렉터도 세 개의 인수를 갖는 reducing 팩토리 메서드를 이용해서 구현
+     */
+    private static <T> Collector<T, ?, Long> counting(){
+        return reducing(0L, e -> 1L, Long::sum);
+    }
+
+//    private static int totalPrice(){
+//       return book.stream().map(Book::getPrice).reduce(Integer::sum).get();
+//    }
+
+    private static int totalPrice(){
+       return book.stream().mapToInt(Book::getPrice).sum();
+    }
+
+
+    /**
+     *
+     */
+
 
 
 }

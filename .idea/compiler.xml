@@ -11,7 +11,7 @@
         <module name="lambdasinaction (1)" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel>
       <module name="java8inaction" target="1.8" />
     </bytecodeTargetLevel>
   </component>
