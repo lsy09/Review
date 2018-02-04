@@ -1,17 +1,22 @@
 package java8inaction.chap6;
 
-import java.util.Comparator;
-import java.util.IntSummaryStatistics;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
+import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.counting;
+import static java8inaction.chap6.Book.*;
 import static java8inaction.chap6.Book.book;
 
 public class Exercise {
 
     public static void main(String ... args) {
+        /**
+         * 6.2 리듀싱과 요약
+         */
 //        System.out.println("howManyBooks : " +howManyBooks());
 //        System.out.println("findMostBookPriceComparator : " + findMostBookPriceComparator());
 //        System.out.println("totalPrices : " + totalPrices());
@@ -19,10 +24,19 @@ public class Exercise {
 //        System.out.println("bookStatistics : " + bookStatistics());
 //        System.out.println("shortBook : " + shortBook());
 //        System.out.println("twoTotalPrices : " + twoTotalPrices());
-//        System.out.println("oneMaxPrice : " + oneMaxPrice());
-        System.out.println("reduceTotalPrice : " + reduceTotalPrice());
-        System.out.println("counting : " + counting());
-        System.out.println("totalPrice : " + totalPrice());
+//        System.out.println("oneMaxPrice : " + oneMaxPrice());ˆ
+//        System.out.println("reduceTotalPrice : " + reduceTotalPrice());
+//        System.out.println("counting : " + counting());
+//        System.out.println("totalPrice : " + totalPrice());
+
+        /**
+         *  6.3 그룹화
+         */
+//        System.out.println("bookByType : " + bookByType());
+//        System.out.println("bookByBookLevel : " + bookByBookLevel());
+//        System.out.println("bookByTypeBookLevel : " + bookByTypeBookLevel());
+//        System.out.println("typesCount : " + typesCount());
+        System.out.println("mostPriceMaxByType : " + mostPriceMaxByType());
     }
 
     // 6.2 팩토리 메서드가 반환하는 컬렉터로 book의 갯수를 계산한다.
@@ -35,7 +49,7 @@ public class Exercise {
     // 6.2.1 스트림값에서 최댓값, 최솟값 검색
     private static Book findMostBookPriceComparator(){
         // price 추출
-        Comparator<Book> bookPriceComparator = Comparator.comparingInt(Book :: getPrice);
+        Comparator<Book> bookPriceComparator = comparingInt(Book :: getPrice);
         // max값 구하기(요약연산 summarization)
 //        BinaryOperator<Book> morePriceOf = BinaryOperator.maxBy(bookPriceComparator);
 //        return book.stream().collect(reducing(morePriceOf)).get();
@@ -124,12 +138,66 @@ public class Exercise {
        return book.stream().mapToInt(Book::getPrice).sum();
     }
 
+    // 6.3 그룹화
+    enum BookLevel { LITERATURE, ESSAY, OTHER };
+
+    private static Map<Book.Type, List<Book>> bookByType(){
+        return book.stream().collect(groupingBy(Book::getType));
+    }
 
     /**
-     *
+     * 메서드 레퍼런스 대신 람다 표현식으로 필요한 로직 구현
      */
+    private static Map<BookLevel, List<Book>> bookByBookLevel(){
+        return book.stream().collect(
+                groupingBy(book -> {
+                    if(book.getPrice() <= 8000){
+                        return BookLevel.LITERATURE;
+                    }else if(book.getPrice() <= 11000){
+                        return BookLevel.ESSAY;
+                    }else {
+                        return BookLevel.OTHER;
+                    }
+                }));
+    }
+
+    // 6.3.1 다수준 그룹화
+    private static Map<Book.Type, Map<BookLevel, List<Book>>> bookByTypeBookLevel() {
+        return book.stream().collect(
+                groupingBy(Book::getType,
+                        groupingBy((Book book) -> {
+                            if (book.getPrice() <= 8000) return BookLevel.LITERATURE;
+                            else if (book.getPrice() <= 11000) return BookLevel.ESSAY;
+                            else return BookLevel.OTHER;
+                        } )
+                )
+        );
+    }
 
 
+    // 6.3.2 서브그룹으로 데이터 수집
+
+    /**
+     * 책의 수를 종류별로 계산
+     * 분류 함수 한개의 인수를 갖는 groupingBy(f)는 사실 groupBy(f, toList())의 축약형
+     */
+    private static Map<Book.Type, Long> typesCount(){
+        return book.stream().collect(groupingBy(Book::getType, counting()));
+    }
+
+    /**
+     * 종류를 분류하는 컬렉터로 가장 비싼 책을 찾는 프로그램 구현
+     * 책의 종류를 키(key)로 Optional<Book>를 값(value)으로 갖는 맵이 반환.
+     * Optional<Book>는 해당 종류의 책중 가장 높은 가격의 책을 래핑한다.
+     */
+    private static Map<Book.Type, Optional<Book>> mostPriceMaxByType(){
+        return book.stream()
+                   .collect(groupingBy(Book::getType, maxBy(comparingInt(Book::getPrice))));
+    }
+
+    /*컬렉터 결과를 다른 형식에 적용하기*/
+    // 6-3 각 서브그룹에서 가장 비싼 책 찾기
+//    private static Map<Book.>
 
 }
 
